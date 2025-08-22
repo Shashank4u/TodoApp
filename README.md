@@ -2,6 +2,30 @@
 
 A feature-rich React Native TODO application built with TypeScript, Redux Toolkit for state management, and React Navigation.
 
+## 📱 **APK Download**
+
+### **Where to Find the APK:**
+The Android APK file is located in the GitHub repository at:
+```
+android/app/build/outputs/apk/release/app-release.apk
+```
+
+### **How to Download the APK:**
+1. **Navigate to the folder**: `android/app/build/outputs/apk/release/`
+2. **Click on `app-release.apk`**
+3. **Click "Download" button** to get the APK file
+
+### **APK Details:**
+- **File Name**: `app-release.apk`
+- **Size**: ~54MB
+- **Type**: Production Release Build
+- **Status**: ✅ Ready for installation
+
+### **Alternative Download Methods:**
+- **Direct Link**: [Download APK](android/app/build/outputs/apk/release/app-release.apk)
+- **GitHub Releases**: Check the Releases section for tagged versions
+- **Clone & Build**: Build your own APK using the instructions below
+
 ## Features
 
 ✅ **Core Functionality**
@@ -23,7 +47,7 @@ A feature-rich React Native TODO application built with TypeScript, Redux Toolki
 ✅ **Technical Features**
 - Built with React Native 0.81.0
 - TypeScript for enhanced type safety
-- MobX for efficient state management
+- Redux Toolkit for efficient state management
 - React Navigation for screen navigation
 - Optimized performance with React.memo
 - Clean, organized folder structure
@@ -226,5 +250,4 @@ For support or questions, please open an issue in the GitHub repository.
 
 ---
 
-**Built with ❤️ using React Native, TypeScript, and MobX**
-# TodoApp
+**Built with ❤️ using React Native, TypeScript, and Redux Toolkit**

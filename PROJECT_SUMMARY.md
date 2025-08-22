@@ -113,7 +113,14 @@ TodoApp/
 - ✅ **Debug Build**: Successfully compiled
 - ✅ **Release Build**: Successfully compiled
 - ✅ **APK Generated**: 54MB release APK available
+- ✅ **APK Location**: `android/app/build/outputs/apk/release/app-release.apk`
 - ✅ **Dependencies**: All required libraries integrated
+
+### APK Download Instructions
+Users can download the APK directly from GitHub by:
+1. Navigating to the `android/app/build/outputs/apk/release/` folder
+2. Clicking on `app-release.apk`
+3. Using the download button to get the APK file
 
 ### iOS
 - ✅ **Project Structure**: iOS project configured
