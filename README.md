@@ -1,97 +1,230 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# TODO List App
 
-# Getting Started
+A feature-rich React Native TODO application built with TypeScript, Redux Toolkit for state management, and React Navigation.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+✅ **Core Functionality**
+- Fetch TODO items from JSONPlaceholder API on app load
+- Display list of TODO items with beautiful UI
+- Add new TODO items with validation
+- Mark TODO items as completed/incomplete
+- Delete TODO items with confirmation
+- Edit existing TODO items inline
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+✅ **Advanced Features**
+- Real-time statistics (Total, Active, Completed counts)
+- Sort by Most Recent or by ID
+- Filter by All, Active, or Done
+- Maintain created_at and updated_at timestamps
+- Pull-to-refresh functionality
+- Smooth animations and transitions
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+✅ **Technical Features**
+- Built with React Native 0.81.0
+- TypeScript for enhanced type safety
+- MobX for efficient state management
+- React Navigation for screen navigation
+- Optimized performance with React.memo
+- Clean, organized folder structure
+- Comprehensive error handling
 
-```sh
-# Using npm
+## Screenshots
+
+The app features a clean black and white design with:
+- Main screen with TODO list, stats, and controls
+- Add Todo screen with form validation
+- Smooth animations and modern UI components
+
+## Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── TodoItem.tsx    # Individual todo item component
+│   ├── StatsCard.tsx   # Statistics display component
+│   └── FilterSortControls.tsx # Sorting and filtering controls
+├── screens/            # App screens
+│   ├── MainScreen.tsx  # Main todo list screen
+│   └── AddTodoScreen.tsx # Add new todo screen
+├── stores/             # State management
+│   ├── todoSlice.ts    # Redux Toolkit slice for todos
+│   ├── store.ts        # Main Redux store configuration
+│   └── hooks.ts        # Custom Redux hooks
+├── navigation/         # Navigation configuration
+│   └── AppNavigator.tsx # Stack navigator setup
+├── types/              # TypeScript type definitions
+│   └── TodoTypes.ts    # Interface definitions
+└── utils/              # Utility functions
+```
+
+## Installation & Setup
+
+### Prerequisites
+- Node.js (>=18)
+- React Native CLI
+- Android Studio (for Android development)
+- Xcode (for iOS development)
+
+### 1. Clone the repository
+```bash
+git clone <your-repo-url>
+cd TodoApp
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Install iOS dependencies (iOS only)
+```bash
+cd ios && pod install && cd ..
+```
+
+### 4. Start Metro bundler
+```bash
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Build and run your app
+### 5. Run the app
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
+**Android:**
+```bash
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+**iOS:**
+```bash
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## Usage
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Main Screen
+- View all your TODO items
+- See real-time statistics at the top
+- Use sorting options (Most Recent / By ID)
+- Filter todos (All / Active / Done)
+- Pull down to refresh the list
+- Tap the + button to add new todos
 
-## Step 3: Modify your app
+### Adding Todos
+- Navigate to Add Todo screen
+- Enter a descriptive title (minimum 3 characters)
+- Tap "Add Todo" to save
+- Validation ensures quality input
 
-Now that you have successfully run the app, let's make changes!
+### Managing Todos
+- **Complete**: Tap the checkbox to mark as done
+- **Edit**: Tap the edit button or the todo content
+- **Delete**: Tap the delete button with confirmation
+- **View**: See timestamps and completion status
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## API Integration
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+The app fetches initial TODO data from:
+```
+https://jsonplaceholder.typicode.com/todos?_limit=20
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+All new todos are stored locally with proper timestamps.
 
-## Congratulations! :tada:
+## State Management
 
-You've successfully run and modified your React Native App. :partying_face:
+The app uses Redux Toolkit for efficient state management:
+- **todoSlice**: Central slice managing all todo operations
+- **Store**: Main Redux store that holds all app state
+- **Actions**: Simple functions for modifying todo state
+- **Selectors**: Helper functions to get filtered/sorted data
+- **Async Thunks**: Handle API calls and async operations
 
-### Now what?
+## Performance Optimizations
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+- **React.memo**: Prevents unnecessary re-renders
+- **Optimized Lists**: Efficient FlatList rendering
+- **Lazy Loading**: Components load only when needed
+- **Memory Management**: Proper cleanup and state management
 
-# Troubleshooting
+## Styling
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+The app features a modern, minimalist design:
+- **Color Scheme**: Black and white with subtle grays
+- **Typography**: Clean, readable fonts
+- **Shadows**: Subtle elevation effects
+- **Animations**: Smooth transitions and feedback
+- **Responsive**: Adapts to different screen sizes
 
-# Learn More
+## Testing
 
-To learn more about React Native, take a look at the following resources:
+Run the test suite:
+```bash
+npm test
+```
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## Building for Production
+
+### Android APK
+```bash
+cd android
+./gradlew assembleRelease
+```
+
+The APK will be generated in:
+```
+android/app/build/outputs/apk/release/app-release.apk
+```
+
+### iOS Archive
+```bash
+cd ios
+xcodebuild -workspace TodoApp.xcworkspace -scheme TodoApp -configuration Release archive -archivePath TodoApp.xcarchive
+```
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Metro bundler issues**
+   ```bash
+   npm start -- --reset-cache
+   ```
+
+2. **iOS build issues**
+   ```bash
+   cd ios && pod deintegrate && pod install
+   ```
+
+3. **Android build issues**
+   ```bash
+   cd android && ./gradlew clean
+   ```
+
+### Dependencies
+
+If you encounter dependency issues:
+```bash
+rm -rf node_modules package-lock.json
+npm install
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.
+
+## Support
+
+For support or questions, please open an issue in the GitHub repository.
+
+---
+
+**Built with ❤️ using React Native, TypeScript, and MobX**
+# TodoApp
